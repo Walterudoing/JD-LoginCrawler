@@ -9,6 +9,8 @@ from jd_login import JDlogin
 import timeit
 
 
+username = ['USERNAME']
+password = ['PASSWORD']
 
 
 if __name__=='__main__':
