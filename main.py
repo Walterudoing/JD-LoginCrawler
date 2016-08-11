@@ -9,27 +9,31 @@ from jd_login import JDlogin
 import timeit
 
 
-username = ['USERNAME'] 
-password = ['PASSWORD'] 
 
 
 if __name__=='__main__':
-	start_time = timeit.default_timer()
+	all_time = timeit.default_timer()
 
 	for i in range(len(username)):
+		start_time = timeit.default_timer()
 		JD = JDlogin(username[i],password[i])
 		JD.login()
 		print(timeit.default_timer() - start_time ,'seconds')
 
 		start_time = timeit.default_timer()
-		JD.Home()
+		JD.get_baitiao()
 		print(timeit.default_timer() - start_time , 'seconds')
 
 		# start_time = timeit.default_timer()
-		# JD.TotalOrderAmount()
+		# JD.realname_auth()
 		# print(timeit.default_timer() - start_time , 'seconds')
 
-		# start_time = timeit.default_timer()
-		# JD.Address()
-		# print(timeit.default_timer() - start_time , 'seconds')
- 
+		start_time = timeit.default_timer()
+		JD.get_totalOrderAmount()
+		print(timeit.default_timer() - start_time , 'seconds')
+
+		start_time = timeit.default_timer()
+		JD.get_address()
+		print(timeit.default_timer() - start_time , 'seconds')
+		
+	print('totally spent ',timeit.default_timer() - all_time , 'seconds')
